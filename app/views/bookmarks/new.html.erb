@@ -1,0 +1,11 @@
+<div class="container d-flex justify-content-center flex-wrap">
+  <div class="col-4">
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :movie, collection: @movies %>
+      <div class="text-center">
+        <%= f.button :submit, class: 'text-white btn btn-danger'  %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<%= @list.id %>
+<%= @list.name %>
+<% number = 0 %>
+<% @list.bookmarks.each do |bookmark| %>
+<li><b>Bookmark <%= number+=1%>:</b> <%= bookmark.comment %></li>
+<li><%= bookmark.movie.title %></li>
+  <%= link_to "",
+    bookmark_path(bookmark),
+    class: "fa-solid fa-trash-can",
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<br>
+<% end %>
+<%= link_to "Add a new Bookmark", new_list_bookmark_path(@list) %> -
+<%= link_to "Back to all lists", lists_path %>
