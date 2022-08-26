@@ -9,14 +9,17 @@
 <% number = 0 %>
 <% @list.bookmarks.each do |bookmark| %>
 <div class="card col-4 m-4 rounded">
+  <img class="card-img-top" style=" object-fit: cover; height: 16rem;" src="<%=bookmark.movie.poster_url%>" alt="Card image cap">
   <div class="card-body bg-black">
-  <li><b>Bookmark <%= number+=1%>:</b> <%= bookmark.comment %></li>
-  <li><%= bookmark.movie.title %></li>
+  <li><b>Bookmark: <%= number+=1%>:</b> <%= bookmark.comment %></li>
+  <li><b>Movie:</b> <%= bookmark.movie.title %></li>
+  <div class="d-flex align-items-end flex-column p-2">
     <%= link_to "",
     bookmark_path(bookmark),
-    class: "fa-solid fa-trash-can",
+    class: "fa-solid fa-trash-can text-danger float-left",
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
+    %>
+  </div>
   </div>
 </div>
 <% end %>
@@ -24,11 +27,10 @@
 
 
 
-
-<div class="d-flex justify-content-center mb-3">
-<a href="/lists/<%=@list.id%>/bookmarks/new"><button type="button" class="btn btn-danger text-white">Create a new Bookmark</button></a>
+<div class="d-flex justify-content-center m-3">
+<a href="/lists/<%=@list.id%>/bookmarks/new"><button type="button" class="btn btn-danger text-white m-3">Create a new Bookmark</button></a>
+<a href="/lists"><button type="button" class="btn btn-danger text-white m-3">Back to all lists</button></a>
 </div>
 
 <div class="d-flex justify-content-center mb-3">
-<a href="/lists"><button type="button" class="btn btn-danger text-white">Back to all lists</button></a>
 </div>
