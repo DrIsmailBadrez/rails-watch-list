@@ -2,7 +2,7 @@
   <div class="col-4">
     <%= simple_form_for [@list, @bookmark] do |f| %>
       <%= f.input :comment %>
-      <%= f.input :movie, collection: @movies %>
+      <%= f.input :movie_id, collection: @movies %>
       <div class="text-center">
         <%= f.button :submit, class: 'text-white btn btn-danger'  %>
       </div>
