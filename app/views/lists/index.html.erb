@@ -9,7 +9,7 @@
 <div class="container d-flex justify-content-around flex-wrap">
   <% @lists.each do |list| %>
     <div class="card col-4 m-4 rounded">
-      <img class="card-img-top" style=" object-fit: cover; height: 16rem;" src="<%=list.photo%>" alt="Card image cap">
+      <img class="card-img-top" style=" object-fit: cover; height: 16rem;" src=" <%= cl_image_path list.photo.key%>" alt="Card image cap">
       <div class="card-body bg-black">
         <a class="card-text text-center text-white text-decoration-none"href="/lists/<%=list.id%>"><h5 ><%= list.name %></h5></a>
       </div>
